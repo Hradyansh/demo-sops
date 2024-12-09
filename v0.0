@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Creation Checklist for Interns</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        h1, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .typing {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid black;
+            width: 0;
+            animation: typing 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            100% {
+                width: 100%;
+            }
+        }
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        #next-button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        const content = [
+            "<h1>Blog Creation Checklist for Interns</h1>",
+            "<h3>Follow this checklist while creating the blog</h3>",
+            "Task No. 1: Headline Creation",
+            "Task Description: Craft a catchy, SEO-optimized headline for the blog",
+            "Details: Make the headline clear, concise, and SEO-friendly.",
+            "Checklist/Instructions:",
+            " - Does the headline include a surprising fact or unexpected twist that grabs attention?",
+            "Example: 'This Skill Can Land You an Ethical Hacking Job in Just 6 Months—No Degree Required!'",
+            " - Does it challenge common beliefs or go against conventional wisdom to spark curiosity?",
+            "Example: 'You Don’t Need a Traditional IT Degree to Get an Ethical Hacking Job—Here’s Why'",
+            " - Does the headline directly address the user’s needs, desires, or pain points?",
+            "Example: 'How to Start Your Career in Ethical Hacking Without Experience'",
+            " - Verify that the headline matches the tone and style of the blog.",
+            "Example: 'Ethical Hacking Jobs Are in High Demand—Are You Ready to Apply?'",
+            " - Is the headline short, snappy, and easy to remember?",
+            "Example: 'Unlock High-Paying Ethical Hacking Jobs Today!'"
+        ];
+
+        let index = 0;
+        const container = document.getElementById("checklist-container");
+        const nextButton = document.getElementById("next-button");
+
+        function typeNextContent() {
+            if (index < content.length) {
+                const element = document.createElement('div');
+                element.innerHTML = content[index];
+                container.appendChild(element);
+                element.classList.add('typing');
+                index++;
+            } else {
+                nextButton.disabled = true;
+                nextButton.textContent = "No more tasks";
+            }
+        }
+
+        window.onload = function () {
+            nextButton.addEventListener('click', function() {
+                typeNextContent();
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="checklist-container"></div>
+        <button id="next-button">Add Next Task</button>
+    </div>
+</body>
+</html>
